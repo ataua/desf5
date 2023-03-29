@@ -1,0 +1,49 @@
+Arguments: 
+  /home/ataua/.nvm/versions/node/v18.12.0/bin/node /usr/local/bin/yarn add sequelize express mogodg mongoose pg
+
+PATH: 
+  /home/ataua/bin:	/lib/jvm/jdk-19.0.2/bin:	/usr/local/go/bin:	/home/ataua/.bun/bin:	/home/ataua/.yarn/bin:	/home/ataua/.config/yarn/global/node_modules/.bin:	/home/ataua/go/bin:	/home/ataua/.cargo/bin:/home/ataua/.local/bin:/home/ataua/.nvm/versions/node/v18.12.0/bin:	/home/ataua/bin:	/lib/jvm/jdk-19.0.2/bin:	/usr/local/go/bin:	/home/ataua/.bun/bin:	/home/ataua/.yarn/bin:	/home/ataua/.config/yarn/global/node_modules/.bin:	/home/ataua/go/bin:	/lib/jvm/jdk-19.0.2/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/usr/lib/jvm/jdk-18/bin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  18.12.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/mogodg: Not found
+      at params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66992:18)
+      at self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140763:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141735:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141657:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "api-livraria",
+    "version": "0.0.1",
+    "decription": "Trabalho final para o bootcamp Desenvolvedor Node da IGTI / 2023",
+    "main": "index.js",
+    "keywords": [],
+    "author": "Atauã Pinali Doederlein <ataua.doederlein@gmail.com>",
+    "license": "MIT",
+    "type": "es6",
+    "scripts": {
+      "dev": "nodemon index.js",
+      "start": "node index.js"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,0 +1,38 @@
+version: '3.2'
+
+services:
+  db_mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_PASSWORD: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./db/mongo:/data/db
+      - ./db/mongo/config:/data/configdb
+      - ./mongo-init-scripts:/docker-entrypoint-initdb.d
+    command: ["mongo", "--host 0:0:0:0 -u mongo -p mongo", "--authenticationDatabase admin", "--eval", "db.getSiblingDB('desf5').createUser({user: 'mongo', pwd: 'mongo', roles: [{role: 'readWrite', db: 'desf5'}]})"]
+
+  mongoclient: # mongodb:@0.0.0.0:27017/desf5
+    image: mongoclient/mongoclient
+    ports:
+     - 3000:3000
+
+  db_pg: 
+    image: postgres:15.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/pg:/var/lib/postgresql/data
+      - ./postgres-init-scripts:/docker-entrypoint-initdb.d
+
+  adminer: # host: db_pg, porta: 5432, usuário: postgres, senha: postgres, db: desf5
+    image: adminer:4.8.1
+    ports: 
+      - 8080:8080
