@@ -1,29 +1,30 @@
 const db = require('../db/pg')
 const S = require('sequelize')
-const Autor = require('./autor.model')
+const Cliente = require('./cliente.model')
+const Livro = require('./livro.model')
 
-const Livro = db.define(
-  'livros',
+const Venda = db.define(
+  'vendas',
   {
-    livro_id: {
+    venda_id: {
       type: S.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: true
     },
-    nome: {
-      type: S.STRING,
-      allowNull: false
-    },
     valor: {
       type: S.DECIMAL(10, 2),
       allowNull: false
     },
-    estoque: {
+    data: {
+      type: S.DATEONLY,
+      allowNull: false
+    },
+    cliente_id: {
       type: S.INTEGER,
       allowNull: false
     },
-    autor_id: {
+    livro_id: {
       type: S.INTEGER,
       allowNull: false
     }
@@ -33,6 +34,7 @@ const Livro = db.define(
   }
 )
 
-Livro.belongsTo(Autor, { foreignKey: 'autor_id' })
+Venda.belongsTo(Cliente, { foreignKey: 'cliente_id' })
+Venda.belongsTo(Livro, { foreignKey: 'livro_id' })
 
-module.exports = Livro
+module.exports = Venda
