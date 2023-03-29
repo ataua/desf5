@@ -34,7 +34,7 @@ const Venda = db.define(
   }
 )
 
-Venda.belongsTo(Cliente, { foreignKey: 'cliente_id' })
-Venda.belongsTo(Livro, { foreignKey: 'livro_id' })
+Venda.belongsTo(Cliente, { foreignKey: 'cliente_id', onDelete: 'CASCADE' })
+Venda.belongsTo(Livro, { foreignKey: 'livro_id', onDelete: 'CASCADE' })
 
 module.exports = Venda
