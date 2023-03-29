@@ -1,0 +1,6 @@
+@host=http://localhost:3001
+
+###
+get {{host}}/livro
+###
+get {{host}}/livro/1

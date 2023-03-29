@@ -1,0 +1,7 @@
+@host=http://localhost:3001
+
+###
+get {{host}}/cliente
+
+###
+get {{host}}/cliente/1
