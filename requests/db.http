@@ -1,0 +1,10 @@
+@host = http://0.0.0.0:3001
+
+###
+GET {{host}}/
+
+###
+GET {{host}}/db/pg
+
+###
+GET {{host}}/db/mongo

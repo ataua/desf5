@@ -1,6 +1,7 @@
-CREATE DATABASE desf5;
-
-\c desf5;
+DROP TABLE vendas CASCADE;
+DROP TABLE livros CASCADE;
+DROP TABLE autores CASCADE;
+DROP TABLE clientes CASCADE;
 
 CREATE TABLE clientes (
   cliente_id SERIAL PRIMARY KEY, 
