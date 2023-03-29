@@ -6,7 +6,6 @@
   "keywords": [],
   "author": "Atauã Pinali Doederlein <ataua.doederlein@gmail.com>",
   "license": "MIT",
-  "type": "es6",
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js"
@@ -19,6 +18,11 @@
     "sequelize": "^6.30.0"
   },
   "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
     "jest": "^29.5.0",
     "nodemon": "^2.0.22"
   }

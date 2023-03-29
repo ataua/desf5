@@ -13,7 +13,6 @@ services:
       - ./db/mongo:/data/db
       - ./db/mongo/config:/data/configdb
       - ./mongo-init-scripts:/docker-entrypoint-initdb.d
-    command: ["mongo", "--host 0:0:0:0 -u mongo -p mongo", "--authenticationDatabase admin", "--eval", "db.getSiblingDB('desf5').createUser({user: 'mongo', pwd: 'mongo', roles: [{role: 'readWrite', db: 'desf5'}]})"]
 
   mongoclient: # mongodb:@0.0.0.0:27017/desf5
     image: mongoclient/mongoclient
