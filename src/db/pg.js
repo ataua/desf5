@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize')
 
 const db = new Sequelize(
-  `postgres://postgres:postgres@0.0.0.0/postgres`,
+  'postgres://postgres:postgres@0.0.0.0/desf5',
   {
     dialect: 'postgres'
   }
 )
 
-export default db
+module.exports = db

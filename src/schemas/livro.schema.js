@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import { AvaliacaoSchema } from './avaliacao.schema';
 
-export const AvaliacaoSchema = new mongoose.Schema(
+const AvaliacaoSchema = new mongoose.Schema(
   {
     livroId: Number,
     descricao: String,
@@ -13,3 +13,5 @@ export const AvaliacaoSchema = new mongoose.Schema(
     collection: "livroInfo"
   }
 )
+
+module.exports = AvaliacaoSchema

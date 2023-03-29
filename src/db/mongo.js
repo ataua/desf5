@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const connect = async () => {
   const uri = 'mongodb://0.0.0.0:27017/desf5'
@@ -11,4 +11,4 @@ const connect = async () => {
   )
 }
 
-export default connect
+module.exports = connect
