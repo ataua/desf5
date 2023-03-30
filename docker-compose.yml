@@ -1,12 +1,11 @@
-version: '3.2'
+version: '3'
 
 services:
   db_mongo:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: mongo
-      MONGO_INITDB_ROOT_PASSWORD: mongo
+      MONGO_INITDB_DATABASE: desf5
     ports:
       - 27017:27017
     volumes:
@@ -14,10 +13,16 @@ services:
       - ./db/mongo/config:/data/configdb
       - ./mongo-init-scripts:/docker-entrypoint-initdb.d
 
-  mongoclient: # mongodb:@0.0.0.0:27017/desf5
+  mongoclient:
     image: mongoclient/mongoclient
     ports:
-     - 3000:3000
+      - 3000:3000
+    restart: always
+    environment:
+      ROOT_URL: http://0.0.0.0
+      MONGOCLIENT_DEFAULT_CONNECTION_URL: mongodb://db_mongo/desf5
+    depends_on:
+      - db_mongo
 
   db_pg: 
     image: postgres:15.2-alpine
