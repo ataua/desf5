@@ -20,7 +20,8 @@ const Cliente = db.define(
     },
     senha: {
       type: S.STRING,
-      allowNull: false
+      allowNull: false,
+      select: false
     },
     telefone: {
       type: S.STRING,
