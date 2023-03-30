@@ -1,7 +1,31 @@
 @host=http://localhost:3001
 
 ###
-get {{host}}/autor
+GET {{host}}/autor
 
 ###
-get {{host}}/autor/1
+GET {{host}}/autor/4
+
+###
+POST {{host}}/autor/
+Content-Type: application/json
+
+{
+  "nome": "Alisson",
+  "email": "al@gmail.com",
+  "telefone": "41-012365"
+}
+
+###
+PUT {{host}}/autor
+Content-Type: application/json
+
+{
+  "autor_id": 41,
+  "nome": "Alisson da Silva",
+  "email": "al@gmail.com",
+  "telefone": "44-123654"
+}
+
+###
+DELETE {{host}}/autor/
