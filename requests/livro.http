@@ -1,6 +1,39 @@
 @host=http://localhost:3001
 
 ###
-get {{host}}/livro
+GET {{host}}/livro
+
 ###
-get {{host}}/livro/1
+GET {{host}}/livro?autor_id=2
+
+###
+GET {{host}}/livro?autorId=7
+
+###
+GET {{host}}/livro/7
+
+###
+POST {{host}}/livro
+Content-Type: application/json
+
+{
+  "nome": "Vinte mil léguas submarinas",
+  "valor": 11,
+  "estoque": 3,
+  "autor_id": 1
+}
+
+###
+PUT {{host}}/livro
+Content-Type: application/json
+
+{
+  "livro_id": 7,
+  "nome": "Vinte mil léguas submarinas II",
+  "valor": 11.55,
+  "estoque": 8,
+  "autor_id": 1
+}
+
+###
+DELETE {{host}}/livro/7
