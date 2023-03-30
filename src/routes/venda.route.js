@@ -54,7 +54,7 @@ vendaRouter.post('/',
       const { venda } = req.body
       return res.status(200).json(await createVenda(venda))
     } catch (error) {
-      return res.status(400).json({ msg: error.messsage })
+      return res.status(400).json({ msg: error.message })
     }
   }
 )
@@ -75,7 +75,7 @@ vendaRouter.delete('/:id',
       await deleteVenda(id)
       return res.status(204)
     } catch (error) {
-      return res.status(400).json({ msg: error.messsage })
+      return res.status(400).json({ msg: error.message })
     }
   }
 )
@@ -97,7 +97,7 @@ vendaRouter.put('/',
       const { venda } = req.body
       return res.status(200).json(await updateVenda(venda))
     } catch (error) {
-      return res.status(400).json({ msg: error.messsage })
+      return res.status(400).json({ msg: error.message })
     }
   }
 )

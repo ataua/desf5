@@ -54,7 +54,7 @@ livroRouter.post('/',
       const { livro } = req.body
       return res.status(200).json(await createLivro(livro))
     } catch (error) {
-      return res.status(400).json({ msg: error.messsage })
+      return res.status(400).json({ msg: error.message })
     }
   }
 )
@@ -75,7 +75,7 @@ livroRouter.delete('/:id',
       await deleteLivro(id)
       return res.status(204)
     } catch (error) {
-      return res.status(400).json({ msg: error.messsage })
+      return res.status(400).json({ msg: error.message })
     }
   }
 )
@@ -97,7 +97,7 @@ livroRouter.put('/',
       const { livro } = req.body
       return res.status(200).json(await updateLivro(livro))
     } catch (error) {
-      return res.status(400).json({ msg: error.messsage })
+      return res.status(400).json({ msg: error.message })
     }
   }
 )

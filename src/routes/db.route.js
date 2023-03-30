@@ -21,8 +21,6 @@ dbRouter.get('/pg', async (req, res) => {
 
 dbRouter.get('/mongo', async (req, res) => {
   try {
-    // const dataFilePath = path.join(__dirname, '../../mongo-init-scripts/init-mongo.js')
-    // const data = fs.readFileSync(dataFilePath, 'utf8')
     const mongo = await connect()
     const collections = await mongo.connection.db.listCollections({ name: 'livroInfo' }).toArray()
     if (collections.length !== 0) {
