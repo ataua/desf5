@@ -52,7 +52,7 @@ clienteRouter.post('/',
       if (emailEmUso) {
         throw new Error('E-mail já cadastrado')
       }
-      return res.status(200).json(await createCliente(cliente))
+      return res.status(201).json(await createCliente(cliente))
     } catch (error) {
       return res.status(400).json({ msg: error.message })
     }

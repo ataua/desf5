@@ -5,10 +5,15 @@ const livroRouter = require('./routes/livro.route')
 const vendaRouter = require('./routes/venda.route')
 const dbRouter = require('./routes/db.route')
 const db = require('./db/pg')
+const basicAuth = require('express-basic-auth')
 
 db.sync()
 
-const app = express().use(express.json())
+const app = express()
+app.use(express.json())
+app.use(basicAuth({
+  users: { admin: 'desafio-igti-nodejs' }
+}))
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Ok!' })

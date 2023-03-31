@@ -1,20 +1,30 @@
+##
+# Gerar credenciais no bash:
+# echo -n admin:desafio-igti-nodejs | base64
+##
+
 @host=http://localhost:3001
 
 ###
 GET {{host}}/livro
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 GET {{host}}/livro?autor_id=2
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 GET {{host}}/livro?autorId=7
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 GET {{host}}/livro/5
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 POST {{host}}/livro
 Content-Type: application/json
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 {
   "nome": "Vinte mil léguas submarinas",
@@ -26,6 +36,7 @@ Content-Type: application/json
 ###
 PUT {{host}}/livro
 Content-Type: application/json
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 {
   "livro_id": 7,
@@ -37,10 +48,12 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}/livro/7
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 POST {{host}}/livro/info
 Content-Type: application/json
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 {
   "livroId": 7,
@@ -52,6 +65,7 @@ Content-Type: application/json
 ###
 PUT {{host}}/livro/info
 Content-Type: application/json
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 {
   "livroId": 6,
@@ -62,10 +76,12 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}/livro/info/6
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 POST {{host}}/livro/6/avaliacao
 Content-Type: application/json
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 {
   "nome": "Atauã",
@@ -75,3 +91,4 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}/livro/6/avaliacao/0
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==

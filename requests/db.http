@@ -1,10 +1,18 @@
+##
+# Gerar credenciais no bash:
+# echo -n admin:desafio-igti-nodejs | base64
+##
+
 @host = http://0.0.0.0:3001
 
 ###
 GET {{host}}/
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 GET {{host}}/db/pg
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 GET {{host}}/db/mongo
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==

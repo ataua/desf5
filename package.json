@@ -11,17 +11,19 @@
     "start": "node src/server.js",
     "test": "jest",
     "lint": "eslint --fix src/**",
-    "watch": "jest --watch -o --coverage",
+    "watch": "jest --watch --coverage",
     "//debugar-teste": "adicionar brakepoint, debugar no chrome no endereço chrome://inspect/#devices, link 'opend dedicated...' -> clicar em F8",
     "debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"
   },
   "dependencies": {
     "express": "^4.18.2",
+    "express-basic-auth": "^1.2.1",
     "express-validator": "^6.15.0",
     "mogodb": "^0.0.1-security",
     "mongoose": "^7.0.3",
     "pg": "^8.10.0",
-    "sequelize": "^6.30.0"
+    "sequelize": "^6.30.0",
+    "supertest": "^6.3.3"
   },
   "devDependencies": {
     "eslint": "^8.0.1",

@@ -1,21 +1,30 @@
+##
+# Gerar credenciais no bash:
+# echo -n admin:desafio-igti-nodejs | base64
+##
+
 @host=http://localhost:3001
 
 ###
 GET {{host}}/cliente
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 GET {{host}}/cliente/2
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 DELETE {{host}}/cliente/13
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 ###
 POST {{host}}/cliente
 Content-Type: application/json
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 {
   "nome": "maria",
-  "email": "joao3@gmail.com",
+  "email": "joao13@gmail.com",
   "senha": "123456",
   "telefone": "41-123456",
   "endereco": "Rua A, casa B"
@@ -24,6 +33,7 @@ Content-Type: application/json
 ###
 PUT {{host}}/cliente
 Content-Type: application/json
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
 
 {
     "cliente_id": 4,
