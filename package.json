@@ -10,7 +10,7 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "test": "jest",
-    "lint": "eslint --fix src/** test/**",
+    "lint": "eslint --fix src/**",
     "watch": "jest --watch -o --coverage",
     "//debugar-teste": "adicionar brakepoint, debugar no chrome no endereço chrome://inspect/#devices, link 'opend dedicated...' -> clicar em F8",
     "debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand"

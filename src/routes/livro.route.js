@@ -1,4 +1,7 @@
+/* eslint-disable camelcase */
 const { Router } = require('express')
+const { param, body, validationResult } = require('express-validator')
+
 const {
   createLivro,
   getLivro,
@@ -8,10 +11,14 @@ const {
   updateLivro
 } = require('../repositories/livro.repository')
 const { getAutor } = require('../repositories/autor.repository')
-const { param, body, validationResult } = require('express-validator')
-const Livro = require('../models/livro.model')
-
-/** TODO: cadastrar informações do livro */
+const {
+  createInfo,
+  deleteInfo,
+  updateInfo,
+  createAvaliacao,
+  deleteAvaliacao
+} = require('../repositories/livro-info.repository')
+// const Livro = require('../models/livro.model')
 
 const livroRouter = Router()
 
@@ -61,7 +68,6 @@ livroRouter.post('/',
   body('autor_id').notEmpty().isInt(),
   async (req, res) => {
     const livro = req.body
-    console.log(livro)
     try {
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
@@ -83,7 +89,7 @@ livroRouter.delete('/:id',
         return res.status(400).json({ errors: errors.array() })
       }
       const { id } = req.params
-      if (!(await Livro.findByPk(id))) {
+      if (!(await getLivro(id))) {
         throw new Error(`Não existe livro com o id ${id}.`)
       }
       await deleteLivro(id)
@@ -109,5 +115,30 @@ livroRouter.put('/',
     }
   }
 )
+
+livroRouter.post('/info', async (req, res) => {
+  await createInfo(req.body)
+  res.status(201).json({ msg: 'Informação do livro criada' })
+})
+
+livroRouter.put('/info', async (req, res) => {
+  await updateInfo(req.body)
+  res.status(201).json({ msg: 'Informação do livro atualizada' })
+})
+
+livroRouter.delete('/info/:id', async (req, res) => {
+  await deleteInfo(req.params.id)
+  res.status(204).end()
+})
+
+livroRouter.post('/:id/avaliacao', async (req, res) => {
+  await createAvaliacao(req.params.id, req.body)
+  return res.status(200).json({ msg: 'Avaliação criada.' })
+})
+
+livroRouter.delete('/:id/avaliacao/:index', async (req, res) => {
+  await deleteAvaliacao(req.params.id, req.params.index)
+  res.status(204).end()
+})
 
 module.exports = livroRouter
