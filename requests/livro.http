@@ -10,7 +10,7 @@ GET {{host}}/livro?autor_id=2
 GET {{host}}/livro?autorId=7
 
 ###
-GET {{host}}/livro/7
+GET {{host}}/livro/5
 
 ###
 POST {{host}}/livro
@@ -19,7 +19,7 @@ Content-Type: application/json
 {
   "nome": "Vinte mil léguas submarinas",
   "valor": 11,
-  "estoque": 3,
+  "estoque": 1,
   "autor_id": 1
 }
 
@@ -37,3 +37,41 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}/livro/7
+
+###
+POST {{host}}/livro/info
+Content-Type: application/json
+
+{
+  "livroId": 7,
+  "descricao": "um livro bem bacana",
+  "paginas": 130,
+  "editora": "vai cai"
+}
+
+###
+PUT {{host}}/livro/info
+Content-Type: application/json
+
+{
+  "livroId": 6,
+  "descricao": "um baita livro",
+  "paginas": 215,
+  "editora": "num vem"
+}
+
+###
+DELETE {{host}}/livro/info/6
+
+###
+POST {{host}}/livro/6/avaliacao
+Content-Type: application/json
+
+{
+  "nome": "Atauã",
+  "nota": 8,
+  "avaliacao": "É divertido!"
+}
+
+###
+DELETE {{host}}/livro/6/avaliacao/0

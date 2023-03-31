@@ -33,6 +33,10 @@ const Livro = db.define(
   }
 )
 
-Livro.belongsTo(Autor, { foreignKey: 'autor_id', onDelete: 'RESTRICT' })
+Livro.belongsTo(Autor, {
+  foreignKey: 'autor_id',
+  as: 'autor',
+  onDelete: 'RESTRICT'
+})
 
 module.exports = Livro

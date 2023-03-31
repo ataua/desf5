@@ -1,8 +1,9 @@
+/* eslint-disable camelcase */
 const Livro = require('../models/livro.model')
 
 const createLivro = async (livro) => await Livro.create(livro)
 
-const getLivro = async (livroId) => await Livro.findByPk(livroId)
+const getLivro = async (livroId) => await Livro.findByPk(livroId, { raw: true })
 
 const getLivros = async () => await Livro.findAll({})
 
