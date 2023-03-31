@@ -1,6 +1,26 @@
 @host=http://localhost:3001
 
 ###
-get {{host}}/venda
+GET {{host}}/venda
+
 ###
-get {{host}}/venda/1
+GET {{host}}/venda?livro_id=1
+
+###
+GET {{host}}/venda?cliente_id=1
+
+###
+GET {{host}}/venda?autor_id=3
+
+###
+GET {{host}}/venda/1
+
+###
+POST {{host}}/venda
+Content-Type: application/json
+
+{
+  "data": "2022-01-20",
+  "cliente_id": 2,
+  "livro_id": 9
+}
