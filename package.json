@@ -22,7 +22,7 @@
     "mogodb": "^0.0.1-security",
     "mongoose": "^7.0.3",
     "pg": "^8.10.0",
-    "sequelize": "^6.30.0",
+    "sequelize": "^6.32.0",
     "supertest": "^6.3.3"
   },
   "devDependencies": {
