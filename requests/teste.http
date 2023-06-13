@@ -1,0 +1,42 @@
+@host = http://0.0.0.0:3001
+
+###
+GET {{host}}/venda?cliente_id=5
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+
+###
+GET {{host}}/cliente/3
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+
+###
+POST {{host}}/venda
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+Content-Type: application/json
+
+{
+  "valor": 130, 
+  "data": "2000-01-01", 
+  "cliente_id": 2, 
+  "livro_id": 4
+}
+
+###
+GET {{host}}/venda?autor_id=3
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+
+###
+GET {{host}}/venda?livro_id=4
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+
+###
+GET {{host}}/livro/1
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+
+###
+GET {{host}}/livro?autor_id=1
+Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+
+###
+GET {{host}}/autor
+# Authorization: Basic YWRtaW46ZGVzYWZpby1pZ3RpLW5vZGVqcw==
+

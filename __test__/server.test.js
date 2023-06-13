@@ -10,6 +10,23 @@ afterAll(async () => {
   await req.get('/db/pg').auth('admin', 'desafio-igti-nodejs')
 })
 
+describe('Teste de acesso', () => {
+  test('Acessar rota com usuário correto e senha incorreta', async () => {
+    const result = await req.get('/cliente').auth('admin', 'admin')
+    expect(result.status).toBe(401)
+  })
+
+  test('Acessar rota sem usuário e senha', async () => {
+    const result = await req.get('/cliente')
+    expect(result.status).toBe(401)
+  })
+
+  test('Acessar rota protegida com outro usuário autenticado, sem autorização', async () => {
+    const result = await req.get('/cliente').auth('john', 'doe')
+    expect(result.status).toBe(403)
+  })
+})
+
 describe('Teste da rota: cliente', () => {
   const cliente1 = {
     nome: 'maria1',
