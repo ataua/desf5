@@ -9,17 +9,35 @@ const basicAuth = require('express-basic-auth')
 
 db.sync()
 
+const authorize = () => {
+  return (req, res, next) => {
+    if (
+      req.auth.user &&
+      basicAuth.safeCompare(req.auth.user, 'admin') &&
+      basicAuth.safeCompare(req.auth.password, 'desafio-igti-nodejs')
+    ) {
+      next()
+    } else {
+      return res.status(403).json({ erro: 'Usuário não autorizado a acessar esse serviço.' })
+    }
+  }
+}
+
 const app = express()
 app.use(express.json())
+
 app.use(basicAuth({
-  users: { admin: 'desafio-igti-nodejs' }
+  users: {
+    admin: 'desafio-igti-nodejs',
+    john: 'doe'
+  }
 }))
 
 app.get('/', (req, res) => {
   res.json({ msg: 'Ok!' })
 })
 
-app.use('/cliente', clienteRouter)
+app.use('/cliente', authorize(), clienteRouter)
 app.use('/autor', autorRouter)
 app.use('/livro', livroRouter)
 app.use('/venda', vendaRouter)
